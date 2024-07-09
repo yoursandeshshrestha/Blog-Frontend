@@ -110,7 +110,7 @@ section {
   color: var(--color-white);
 }
 
-.btn.caterory {
+.btn.category {
   background: var(--color-bg);
   color: var(--color-primary);
   font-size: 0.75rem;
@@ -245,7 +245,7 @@ footer {
 .post__thumbnail {
   border-radius: var(--radius-3);
   overflow: hidden;
-  height: 16rem;
+  /* height: 16rem; */
 }
 
 .post__content {
