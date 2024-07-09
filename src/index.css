@@ -362,6 +362,12 @@ textarea {
   color: var(--color-primary);
 }
 
+.ql-editor {
+  overflow: scroll;
+  background: var(--color-white);
+  height: 10rem !important;
+}
+
 /*------- Author Starts here ------*/
 
 .authors__container {
