@@ -5,7 +5,7 @@ import Avatar from "../src/assets/images/avatar1.jpg";
 function PostAuthor() {
   return (
     <Link to={`/posts/users/sdsd`} className="post__author">
-      <div className="post_-author-avatar">
+      <div className="post__author-avatar">
         <img src={Avatar} alt="avatar" />
       </div>
       <div className="post__author-details">
