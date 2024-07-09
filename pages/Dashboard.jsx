@@ -21,10 +21,16 @@ function Dashboard() {
                   <Link to={`/posts/${posts.id}`} className="btn sm">
                     view
                   </Link>
-                  <Link to={`/posts/${posts.id}`} className="btn sm primary">
+                  <Link
+                    to={`/posts/${posts.id}/edit`}
+                    className="btn sm primary"
+                  >
                     edit
                   </Link>
-                  <Link to={`/posts/${posts.id}`} className="btn sm danger">
+                  <Link
+                    to={`/posts/${posts.id}/delete`}
+                    className="btn sm danger"
+                  >
                     delete
                   </Link>
                 </div>
