@@ -12,7 +12,8 @@ const DUMMY_POSTS = [
     thumbnail: Thumbnail1,
     category: "education",
     title: "This is the title of the very first post on this blog",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque accusamus nostrum nulla tenetur quisquam amet officiis, quia voluptates saepe sint laborum quas quasi odit alias vitae ratione harum consequuntur.",
     authorID: 3,
   },
   {
@@ -20,7 +21,8 @@ const DUMMY_POSTS = [
     thumbnail: Thumbnail2,
     category: "science",
     title: "This is the title of the very second post on this blog",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque accusamus nostrum nulla tenetur quisquam amet officiis, quia voluptates saepe sint laborum quas quasi odit alias vitae ratione harum consequuntur.",
     authorID: 1,
   },
   {
@@ -28,7 +30,8 @@ const DUMMY_POSTS = [
     thumbnail: Thumbnail3,
     category: "weather",
     title: "This is the title of the very third post on this blog",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque accusamus nostrum nulla tenetur quisquam amet officiis, quia voluptates saepe sint laborum quas quasi odit alias vitae ratione harum consequuntur.",
     authorID: 13,
   },
   {
@@ -36,7 +39,8 @@ const DUMMY_POSTS = [
     thumbnail: Thumbnail4,
     category: "farming",
     title: "This is the title of the very fourth post on this blog",
-    description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis atque accusamus nostrum nulla tenetur quisquam amet officiis, quia voluptates saepe sint laborum quas quasi odit alias vitae ratione harum consequuntur.",
     authorID: 11,
   },
 ];
