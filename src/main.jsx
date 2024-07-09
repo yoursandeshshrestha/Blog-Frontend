@@ -13,7 +13,7 @@ import Login from "../pages/Login.jsx";
 import UserProfile from "../pages/UserProfile.jsx";
 import Authors from "../pages/Authors.jsx";
 import CreatePost from "../pages/CreatePost.jsx";
-import CategoryPost from "../pages/CategoryPost.jsx";
+import CategoryPosts from "../pages/CategoryPosts.jsx";
 import AuthorPosts from "../pages/AuthorPost.jsx";
 import Dashboard from "../pages/Dashboard.jsx";
 import EditPost from "../pages/EditPost.jsx";
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
       { path: "profile/:id", element: <UserProfile /> },
       { path: "authors", element: <Authors /> },
       { path: "create", element: <CreatePost /> },
-      { path: "posts/catergories/:category", element: <CategoryPost /> },
+      { path: "posts/categories/:category", element: <CategoryPosts /> },
       { path: "posts/users/:id", element: <AuthorPosts /> },
       { path: "myposts/:id", element: <Dashboard /> },
       { path: "posts/:id/edit", element: <EditPost /> },
