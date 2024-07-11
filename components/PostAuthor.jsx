@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Avatar from "../src/assets/images/avatar1.jpg";
+import axios from "axios";
 
-function PostAuthor() {
+import ReactTimeAgo from "react-time-ago";
+import TimeAgo from "javascript-time-ago";
+import en from "javascript-time-ago/locale/en.json";
+TimeAgo.addDefaultLocale(en);
+
+function PostAuthor({ createdAt, authorID }) {
+  const [author, setAuthor] = useState({});
+
+  useEffect(() => {
+    const getAuthor = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8009/api/users/${authorID}`
+        );
+        setAuthor(response?.data);
+      } catch (error) {
+        console.log("Error fetching author:", error);
+      }
+    };
+
+    getAuthor();
+  }, [authorID]);
+
   return (
-    <Link to={`/posts/users/sdsd`} className="post__author">
+    <Link to={`/posts/users/${authorID}`} className="post__author">
       <div className="post__author-avatar">
-        <img src={Avatar} alt="avatar" />
+        <img
+          src={`http://localhost:8009/uploads/${author.avatar}`}
+          alt="avatar"
+        />
       </div>
       <div className="post__author-details">
-        <h5>By: Sandesh Shrestha</h5>
-        <small>Just Now</small>
+        <h5>By: {author.name}</h5>
+        <small>
+          <ReactTimeAgo date={new Date(createdAt)} locale="en-US" />
+        </small>
       </div>
     </Link>
   );

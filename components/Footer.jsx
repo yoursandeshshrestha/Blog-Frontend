@@ -4,34 +4,19 @@ import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer>
-      <ul className="footer__categories">
-        <li>
-          <Link to="/posts/categories/Agriculture">Agriculture</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Business">Business</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Education">Education</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Entertainment">Entertainment</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Art">Art</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Investnment">Investnment</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Uncategorized">Uncategorized</Link>
-        </li>
-        <li>
-          <Link to="/posts/categories/Weather">Weather</Link>
-        </li>
-      </ul>
       <div className="footer__copyright">
-        <small>All Right Reserved</small>
+        <small>Made with ❤️ by Sandesh Shrestha</small>
+        <div className="social">
+          <a href="https://github.com/yoursandeshshrestha" target="_blank">
+            <img src="../public/github.png" />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/sandesh-shrestha-b829572b0/"
+            target="_blank"
+          >
+            <img src="../public/linkedin.png" />
+          </a>
+        </div>
       </div>
     </footer>
   );

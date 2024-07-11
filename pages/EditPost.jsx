@@ -1,17 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { UserContext } from "../src/context/userContext";
+import { useNavigate, useParams } from "react-router-dom";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import axios from "axios";
 
 function EditPost() {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("Uncategorized");
   const [description, setDescription] = useState("");
-  const [thumbnail, setThumbnail] = useState("");
+  const [thumbnail, setThumbnail] = useState(null);
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
+  const { id } = useParams();
+
+  const { currentUser } = useContext(UserContext);
+  const token = currentUser?.token;
+
+  useEffect(() => {
+    if (!token) {
+      navigate("/login");
+    }
+  }, [token, navigate]);
 
   const modules = {
     toolbar: [
       [{ header: [1, 2, 3, 4, 5, 6, false] }],
-      ["bold", "italic", "underline", "strike", "blackquote"],
+      ["bold", "italic", "underline", "strike", "blockquote"],
       [
         { list: "ordered" },
         { list: "bullet" },
@@ -48,12 +64,60 @@ function EditPost() {
     "Weather",
   ];
 
+  useEffect(() => {
+    const getPost = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_BASE_URL}/posts/${id}`
+        );
+        setTitle(response.data.title);
+        setCategory(response.data.category);
+        setDescription(response.data.description);
+        if (response.data.thumbnail) {
+          setThumbnail(response.data.thumbnail);
+        }
+      } catch (error) {
+        setError(error.response.data.message);
+      }
+    };
+    getPost();
+  }, [id]);
+
+  const updatePost = async (e) => {
+    e.preventDefault();
+
+    const postData = new FormData();
+    postData.append("title", title);
+    postData.append("category", category);
+    postData.append("description", description);
+    if (thumbnail) {
+      postData.append("thumbnail", thumbnail);
+    }
+
+    try {
+      const response = await axios.patch(
+        `${import.meta.env.VITE_BASE_URL}/posts/${id}`,
+        postData,
+        { withCredentials: true, headers: { Authorization: `Bearer ${token}` } }
+      );
+      if (response.status === 200) {
+        navigate(`/posts/${id}`);
+      }
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
+
   return (
     <section className="create-post">
       <div className="container">
         <h2>Edit Post</h2>
-        <p className="form__error-message">This is an error message</p>
-        <form className="form create-post__form">
+        {error && <p className="form__error-message">{error}</p>}
+        <form
+          className="form create-post__form"
+          onSubmit={updatePost}
+          encType="multipart/form-data"
+        >
           <input
             type="text"
             placeholder="Title"
@@ -67,7 +131,9 @@ function EditPost() {
             onChange={(e) => setCategory(e.target.value)}
           >
             {POST_CATEGORIES.map((cat) => (
-              <option key={cat}>{cat}</option>
+              <option key={cat} value={cat}>
+                {cat}
+              </option>
             ))}
           </select>
           <ReactQuill
@@ -79,10 +145,10 @@ function EditPost() {
           <input
             type="file"
             onChange={(e) => setThumbnail(e.target.files[0])}
-            accept="png, jpg, jpeg"
+            accept=".png, .jpg, .jpeg"
           />
           <button type="submit" className="btn primary">
-            update
+            Update
           </button>
         </form>
       </div>
