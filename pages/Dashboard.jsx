@@ -1,5 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { DUMMY_POSTS } from "../src/data";
 import { Link } from "react-router-dom";
 import { UserContext } from "../src/context/userContext";
 import { useNavigate, useParams } from "react-router-dom";
