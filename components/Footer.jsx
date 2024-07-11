@@ -7,13 +7,13 @@ function Footer() {
         <small>Made with ❤️ by Sandesh Shrestha</small>
         <div className="social">
           <a href="https://github.com/yoursandeshshrestha" target="_blank">
-            <img src="../public/github.png" />
+            <small>Github</small>
           </a>
           <a
             href="https://www.linkedin.com/in/sandesh-shrestha-b829572b0/"
             target="_blank"
           >
-            <img src="../public/linkedin.png" />
+            <small>Linkedin</small>
           </a>
         </div>
       </div>
