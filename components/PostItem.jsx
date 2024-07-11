@@ -19,7 +19,7 @@ function PostItem({
     <article className="post">
       <div className="post__thumbnail">
         <img
-          src={`http://localhost:8009/uploads/${thumbnail}`}
+          src={`${import.meta.env.VITE_ASSETS_URL}/uploads/${thumbnail}`}
           alt={thumbnail}
         />
       </div>

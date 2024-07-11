@@ -14,7 +14,7 @@ function PostAuthor({ createdAt, authorID }) {
     const getAuthor = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8009/api/users/${authorID}`
+          `${import.meta.env.VITE_BASE_URL}/users/${authorID}`
         );
         setAuthor(response?.data);
       } catch (error) {
@@ -29,7 +29,7 @@ function PostAuthor({ createdAt, authorID }) {
     <Link to={`/posts/users/${authorID}`} className="post__author">
       <div className="post__author-avatar">
         <img
-          src={`http://localhost:8009/uploads/${author.avatar}`}
+          src={`${import.meta.env.VITE_ASSETS_URL}/uploads/${author.avatar}`}
           alt="avatar"
         />
       </div>
