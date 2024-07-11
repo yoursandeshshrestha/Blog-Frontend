@@ -41,6 +41,21 @@ function Header() {
         </Link>
         {isNavShowing && (
           <ul className="nav__menu">
+            <select name="category" onChange={handleSelectChange}>
+              <option value="/">Home</option>
+              <option value="/posts/categories/Agriculture">Agriculture</option>
+              <option value="/posts/categories/Business">Business</option>
+              <option value="/posts/categories/Education">Education</option>
+              <option value="/posts/categories/Entertainment">
+                Entertainment
+              </option>
+              <option value="/posts/categories/Art">Art</option>
+              <option value="/posts/categories/Investment">Investment</option>
+              <option value="/posts/categories/Uncategorized">
+                Uncategorized
+              </option>
+              <option value="/posts/categories/Weather">Weather</option>
+            </select>
             {currentUser?.id ? (
               <>
                 <li>
@@ -51,25 +66,7 @@ function Header() {
                     {currentUser.email}
                   </Link>
                 </li>
-                <select name="category" onChange={handleSelectChange}>
-                  <option value="/">Home</option>
-                  <option value="/posts/categories/Agriculture">
-                    Agriculture
-                  </option>
-                  <option value="/posts/categories/Business">Business</option>
-                  <option value="/posts/categories/Education">Education</option>
-                  <option value="/posts/categories/Entertainment">
-                    Entertainment
-                  </option>
-                  <option value="/posts/categories/Art">Art</option>
-                  <option value="/posts/categories/Investment">
-                    Investment
-                  </option>
-                  <option value="/posts/categories/Uncategorized">
-                    Uncategorized
-                  </option>
-                  <option value="/posts/categories/Weather">Weather</option>
-                </select>
+
                 <li>
                   <Link
                     to={`/myposts/${currentUser.id}`}
